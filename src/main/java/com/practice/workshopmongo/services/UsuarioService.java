@@ -30,4 +30,13 @@ public class UsuarioService {
 		findById(id);
 		repository.deleteById(id); 
 	}
+	public Usuario update(Usuario obj) {
+		Usuario newObj = findById(obj.getId());
+		atualizarDados(newObj, obj);
+		return repository.save(newObj);		
+	}
+	private void atualizarDados(Usuario newObj, Usuario obj) {
+		newObj.setEmail(obj.getEmail());
+		newObj.setNome(obj.getNome());
+	}
 }
