@@ -1,7 +1,10 @@
 package com.practice.workshopmongo.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.practice.workshopmongo.entities.Post;
 import com.practice.workshopmongo.entities.Usuario;
 
 public class UsuarioDTO implements Serializable{
@@ -10,6 +13,9 @@ public class UsuarioDTO implements Serializable{
 	private String id;
 	private String nome;
 	private String email;
+	
+	
+	private List<Post> posts = new ArrayList<>();
 
 	public UsuarioDTO() {
 
@@ -18,6 +24,7 @@ public class UsuarioDTO implements Serializable{
 		id = obj.getId();
 		nome = obj.getNome();
 		email = obj.getEmail();
+		posts = obj.getPosts();
 	}
 
 	public String getId() {
@@ -37,6 +44,9 @@ public class UsuarioDTO implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<Post> getPosts() {
+		return posts;
 	}
 	
 	public static Usuario fromDTO(UsuarioDTO objDTO) {
