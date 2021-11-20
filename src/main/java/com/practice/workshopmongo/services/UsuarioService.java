@@ -23,4 +23,7 @@ public class UsuarioService {
 		 Optional<Usuario> obj = repository.findById(id);
 		 return obj.orElseThrow(() -> new ResourceNotFoundException("O obejto com a id: "+ id+" não foi encontrado"));
 	}
+	public Usuario insert(Usuario obj) {
+		return repository.insert(obj); 
+	}
 }
